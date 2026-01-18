@@ -38,14 +38,14 @@ const departments = [
         openings: [
             { title: "Senior Full-Stack Engineer", location: "Remote", type: "Full-time" },
             { title: "ML/AI Engineer", location: "Remote", type: "Full-time" },
-            { title: "Staff Backend Engineer", location: "San Francisco, CA", type: "Full-time" },
+            { title: "Staff Backend Engineer", location: "Potters Bar, UK", type: "Full-time" },
             { title: "Frontend Engineer", location: "Remote", type: "Full-time" },
         ],
     },
     {
         name: "Product",
         openings: [
-            { title: "Senior Product Manager", location: "San Francisco, CA", type: "Full-time" },
+            { title: "Senior Product Manager", location: "Potters Bar, UK", type: "Full-time" },
             { title: "Product Designer", location: "Remote", type: "Full-time" },
             { title: "UX Researcher", location: "Remote", type: "Full-time" },
         ],
@@ -53,7 +53,7 @@ const departments = [
     {
         name: "Sales & Marketing",
         openings: [
-            { title: "Enterprise Account Executive", location: "New York, NY", type: "Full-time" },
+            { title: "Enterprise Account Executive", location: "Remote", type: "Full-time" },
             { title: "Content Marketing Manager", location: "Remote", type: "Full-time" },
             { title: "Developer Advocate", location: "Remote", type: "Full-time" },
         ],
@@ -61,7 +61,7 @@ const departments = [
     {
         name: "Operations",
         openings: [
-            { title: "People Operations Manager", location: "San Francisco, CA", type: "Full-time" },
+            { title: "People Operations Manager", location: "Potters Bar, UK", type: "Full-time" },
             { title: "Customer Success Manager", location: "Remote", type: "Full-time" },
         ],
     },
@@ -231,7 +231,7 @@ export default function CareersPage() {
                         </p>
                         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                             <Button size="lg" asChild>
-                                <Link href="mailto:careers@bitrizeplus.com">
+                                <Link href="mailto:careers@bitrizeplus.dev">
                                     Send Your Resume
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>

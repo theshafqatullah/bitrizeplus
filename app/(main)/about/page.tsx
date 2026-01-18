@@ -69,7 +69,7 @@ const leadership = [
 ];
 
 const milestones = [
-  { year: "2023", event: "Bitrize Plus founded in San Francisco" },
+  { year: "2023", event: "Bitrize Plus founded in United Kingdom" },
   { year: "2023", event: "Launched first AI agent (CodePilot)" },
   { year: "2024", event: "Series A funding ($25M)" },
   { year: "2024", event: "Expanded to 10 AI agents" },

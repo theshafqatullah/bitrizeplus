@@ -253,8 +253,8 @@ export default function CookiesPage() {
                                 </p>
                                 <div className="mt-4 p-6 rounded-lg bg-card border border-border">
                                     <p className="text-foreground font-semibold">Bitrize Plus, Inc.</p>
-                                    <p className="text-muted-foreground mt-2">Email: privacy@bitrizeplus.com</p>
-                                    <p className="text-muted-foreground">Address: 100 Innovation Drive, San Francisco, CA 94105</p>
+                                    <p className="text-muted-foreground mt-2">Email: privacy@bitrizeplus.dev</p>
+                                    <p className="text-muted-foreground">Address: 7 Dove Ln, Potters Bar EN6 2SG, United Kingdom</p>
                                 </div>
                             </div>
                         </div>

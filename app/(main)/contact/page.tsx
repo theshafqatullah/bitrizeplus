@@ -19,22 +19,22 @@ const contactMethods = [
     icon: Mail,
     title: "Email",
     description: "Send us an email anytime",
-    value: "hello@bitrizeplus.com",
-    href: "mailto:hello@bitrizeplus.com",
+    value: "hello@bitrizeplus.dev",
+    href: "mailto:hello@bitrizeplus.dev",
   },
   {
     icon: Phone,
     title: "Phone",
-    description: "Mon-Fri from 8am to 6pm PST",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    description: "Mon-Fri from 9am to 6pm GMT",
+    value: "+44 7493 057836",
+    href: "tel:+447493057836",
   },
   {
     icon: MapPin,
     title: "Office",
     description: "Visit our headquarters",
-    value: "San Francisco, CA",
-    href: "#",
+    value: "7 Dove Ln, Potters Bar EN6 2SG, UK",
+    href: "https://maps.google.com/?q=7+Dove+Ln,+Potters+Bar+EN6+2SG,+United+Kingdom",
   },
 ];
 
@@ -44,7 +44,7 @@ const supportOptions = [
     title: "Sales Inquiries",
     description: "Talk to our sales team about enterprise solutions and custom pricing.",
     action: "Contact Sales",
-    href: "mailto:sales@bitrizeplus.com",
+    href: "mailto:sales@bitrizeplus.dev",
   },
   {
     icon: Clock,
@@ -58,7 +58,7 @@ const supportOptions = [
     title: "Partnerships",
     description: "Explore partnership opportunities and integrations.",
     action: "Partner With Us",
-    href: "mailto:partners@bitrizeplus.com",
+    href: "mailto:partners@bitrizeplus.dev",
   },
 ];
 

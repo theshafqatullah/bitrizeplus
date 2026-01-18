@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HorizontalLogo from "@/components/shared/HorizontalLogo";
 
 const footerLinks = {
   products: [
@@ -72,26 +73,24 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-primary/10 bg-gradient-to-b from-background to-primary/5">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center bg-primary text-primary-foreground font-bold text-sm">
-                B+
-              </div>
-              <span className="text-xl font-bold">Bitrize <span className="text-primary">Plus</span></span>
+    <footer className="border-t border-border bg-background">
+      <div className="container mx-auto px-4 py-16">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-6">
+          {/* Brand Column */}
+          <div className="lg:col-span-2">
+            <Link href="/" className="inline-block">
+              <HorizontalLogo className="h-8 w-auto text-foreground" />
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               AI-powered software development lifecycle platform. Build better software, faster.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex items-center gap-4">
               {socialLinks.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-card border border-border text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -102,10 +101,12 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Products */}
+          {/* Products Column */}
           <div>
-            <h3 className="text-sm font-semibold text-primary">Products</h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Products
+            </h3>
+            <ul className="mt-4 space-y-3">
               {footerLinks.products.slice(0, 5).map((link) => (
                 <li key={link.name}>
                   <Link
@@ -119,10 +120,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* More Products */}
+          {/* More Products Column */}
           <div>
-            <h3 className="text-sm font-semibold text-primary">More Products</h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              More Products
+            </h3>
+            <ul className="mt-4 space-y-3">
               {footerLinks.products.slice(5).map((link) => (
                 <li key={link.name}>
                   <Link
@@ -136,10 +139,12 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Company Column */}
           <div>
-            <h3 className="text-sm font-semibold text-primary">Company</h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Company
+            </h3>
+            <ul className="mt-4 space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -151,8 +156,14 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <h3 className="mt-6 text-sm font-semibold text-primary">Resources</h3>
-            <ul className="mt-4 space-y-2">
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Resources
+            </h3>
+            <ul className="mt-4 space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -167,13 +178,13 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 border-t border-primary/10 pt-8">
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        {/* Bottom Bar */}
+        <div className="mt-16 border-t border-border pt-8">
+          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Bitrize Plus. All rights reserved.
+              © {new Date().getFullYear()} Bitrize Plus, Inc. All rights reserved.
             </p>
-            <div className="flex gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-6">
               {footerLinks.legal.map((link) => (
                 <Link
                   key={link.name}

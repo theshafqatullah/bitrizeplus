@@ -1,208 +1,263 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import {
+    ArrowRight,
+    Book,
+    Code,
+    Zap,
+    Settings,
+    Users,
+    Shield,
+    Search,
+    ExternalLink,
+    FileText,
+    Terminal,
+    Puzzle,
+    Rocket,
+} from "lucide-react";
 
 const docSections = [
-  {
-    title: "Getting Started",
-    description: "Learn the basics and set up your first project",
-    items: [
-      { title: "Introduction", href: "/docs/introduction" },
-      { title: "Quick Start Guide", href: "/docs/quick-start" },
-      { title: "Installation", href: "/docs/installation" },
-      { title: "Authentication", href: "/docs/authentication" },
-    ],
-  },
-  {
-    title: "AI Agents",
-    description: "Detailed documentation for each AI agent",
-    items: [
-      { title: "IdeaForge AI", href: "/docs/agents/ideaforge" },
-      { title: "SpecGen Agent", href: "/docs/agents/specgen" },
-      { title: "UXMind Agent", href: "/docs/agents/uxmind" },
-      { title: "CodePilot AI", href: "/docs/agents/codepilot" },
-      { title: "AutoDevOps Agent", href: "/docs/agents/autodevops" },
-      { title: "TestGuard AI", href: "/docs/agents/testguard" },
-      { title: "SecureSense Agent", href: "/docs/agents/securesense" },
-      { title: "LaunchMate AI", href: "/docs/agents/launchmate" },
-      { title: "ScaleOps Agent", href: "/docs/agents/scaleops" },
-      { title: "ProductBrain AI", href: "/docs/agents/productbrain" },
-    ],
-  },
-  {
-    title: "API Reference",
-    description: "Complete API documentation",
-    items: [
-      { title: "REST API Overview", href: "/docs/api/overview" },
-      { title: "Authentication", href: "/docs/api/authentication" },
-      { title: "Agents API", href: "/docs/api/agents" },
-      { title: "Projects API", href: "/docs/api/projects" },
-      { title: "Webhooks", href: "/docs/api/webhooks" },
-      { title: "Rate Limits", href: "/docs/api/rate-limits" },
-    ],
-  },
-  {
-    title: "Integrations",
-    description: "Connect Bitrize Plus with your tools",
-    items: [
-      { title: "GitHub Integration", href: "/docs/integrations/github" },
-      { title: "GitLab Integration", href: "/docs/integrations/gitlab" },
-      { title: "Jira Integration", href: "/docs/integrations/jira" },
-      { title: "Slack Integration", href: "/docs/integrations/slack" },
-      { title: "VS Code Extension", href: "/docs/integrations/vscode" },
-    ],
-  },
+    {
+        icon: Rocket,
+        title: "Getting Started",
+        description: "Everything you need to get up and running with Bitrize Plus.",
+        links: [
+            { title: "Quick Start Guide", href: "/docs/quick-start" },
+            { title: "Installation", href: "/docs/installation" },
+            { title: "First AI Agent", href: "/docs/first-agent" },
+            { title: "Configuration", href: "/docs/configuration" },
+        ],
+    },
+    {
+        icon: Zap,
+        title: "AI Agents",
+        description: "Deep dives into each of our 10 AI agents and their capabilities.",
+        links: [
+            { title: "CodePilot AI", href: "/docs/agents/codepilot" },
+            { title: "IdeaForge AI", href: "/docs/agents/ideaforge" },
+            { title: "TestGuard AI", href: "/docs/agents/testguard" },
+            { title: "View All Agents →", href: "/docs/agents" },
+        ],
+    },
+    {
+        icon: Code,
+        title: "API Reference",
+        description: "Complete API documentation for developers.",
+        links: [
+            { title: "REST API", href: "/docs/api/rest" },
+            { title: "Authentication", href: "/docs/api/auth" },
+            { title: "Webhooks", href: "/docs/api/webhooks" },
+            { title: "Rate Limits", href: "/docs/api/limits" },
+        ],
+    },
+    {
+        icon: Puzzle,
+        title: "Integrations",
+        description: "Connect Bitrize Plus with your favorite tools.",
+        links: [
+            { title: "GitHub", href: "/docs/integrations/github" },
+            { title: "GitLab", href: "/docs/integrations/gitlab" },
+            { title: "Slack", href: "/docs/integrations/slack" },
+            { title: "View All →", href: "/docs/integrations" },
+        ],
+    },
+    {
+        icon: Settings,
+        title: "Configuration",
+        description: "Customize Bitrize Plus to fit your workflow.",
+        links: [
+            { title: "Project Settings", href: "/docs/config/project" },
+            { title: "Team Management", href: "/docs/config/team" },
+            { title: "Environment Variables", href: "/docs/config/env" },
+            { title: "CI/CD Setup", href: "/docs/config/cicd" },
+        ],
+    },
+    {
+        icon: Shield,
+        title: "Security",
+        description: "Learn about our security practices and compliance.",
+        links: [
+            { title: "Security Overview", href: "/docs/security/overview" },
+            { title: "Data Privacy", href: "/docs/security/privacy" },
+            { title: "Compliance", href: "/docs/security/compliance" },
+            { title: "SOC 2 Report", href: "/docs/security/soc2" },
+        ],
+    },
 ];
 
-const popularTopics = [
-  "How to create your first project",
-  "Setting up CI/CD with AutoDevOps",
-  "Using CodePilot for React development",
-  "Configuring security scans",
-  "API authentication best practices",
-  "Webhook configuration guide",
+const quickLinks = [
+    { icon: Terminal, title: "CLI Reference", href: "/docs/cli", description: "Command-line interface docs" },
+    { icon: FileText, title: "Changelog", href: "/docs/changelog", description: "Latest updates and releases" },
+    { icon: Users, title: "Community", href: "/community", description: "Join our community" },
+    { icon: Book, title: "Tutorials", href: "/docs/tutorials", description: "Step-by-step guides" },
 ];
 
 export default function DocsPage() {
-  return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-black">
-      <main className="container mx-auto px-4 py-16">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 text-black dark:text-white">
-            Documentation
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Everything you need to build with Bitrize Plus
-          </p>
-          
-          {/* Search Bar */}
-          <div className="max-w-xl mx-auto">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search documentation..."
-                className="w-full px-6 py-4 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12"
-              />
-              <svg
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
+    return (
+        <div className="flex flex-col">
+            {/* Hero Section */}
+            <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/30 py-24">
+                <div className="container mx-auto px-4">
+                    <div className="mx-auto max-w-4xl text-center">
+                        <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary border-primary/20">
+                            Documentation
+                        </Badge>
+                        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                            Learn <span className="text-primary">Bitrize Plus</span>
+                        </h1>
+                        <p className="mt-6 text-lg text-muted-foreground md:text-xl">
+                            Comprehensive guides, API references, and tutorials to help you get the most out of Bitrize Plus.
+                        </p>
 
-        {/* Quick Links */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link
-              href="/docs/quick-start"
-              className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-6 text-white hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-lg font-semibold mb-2">Quick Start</h3>
-              <p className="text-sm text-blue-100">Get up and running in 5 minutes</p>
-            </Link>
-            <Link
-              href="/docs/api/overview"
-              className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-6 text-white hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-lg font-semibold mb-2">API Reference</h3>
-              <p className="text-sm text-purple-100">Explore the complete API</p>
-            </Link>
-            <Link
-              href="/docs/agents/codepilot"
-              className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-6 text-white hover:shadow-lg transition-shadow"
-            >
-              <h3 className="text-lg font-semibold mb-2">Agent Guides</h3>
-              <p className="text-sm text-green-100">Learn how to use each agent</p>
-            </Link>
-          </div>
-        </div>
-
-        {/* Documentation Sections */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2">
-            <div className="space-y-12">
-              {docSections.map((section) => (
-                <div key={section.title}>
-                  <h2 className="text-2xl font-semibold mb-2 text-black dark:text-white">
-                    {section.title}
-                  </h2>
-                  <p className="text-muted-foreground mb-4">{section.description}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {section.items.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={item.href}
-                        className="bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 p-4 hover:shadow-md transition-shadow"
-                      >
-                        <span className="text-black dark:text-white font-medium">
-                          {item.title}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
+                        {/* Search Box */}
+                        <div className="mt-8 mx-auto max-w-xl">
+                            <div className="relative">
+                                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+                                <Input
+                                    type="search"
+                                    placeholder="Search documentation..."
+                                    className="h-12 pl-12 border-primary/20 focus:border-primary"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              ))}
-            </div>
-          </div>
+                <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#7B4DD010_1px,transparent_1px),linear-gradient(to_bottom,#7B4DD010_1px,transparent_1px)] bg-[size:24px_24px]" />
+            </section>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 space-y-8">
-              {/* Popular Topics */}
-              <div className="bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800 p-6">
-                <h3 className="text-lg font-semibold mb-4 text-black dark:text-white">
-                  Popular Topics
-                </h3>
-                <ul className="space-y-3">
-                  {popularTopics.map((topic) => (
-                    <li key={topic}>
-                      <Link
-                        href="#"
-                        className="text-sm text-muted-foreground hover:text-black dark:hover:text-white transition-colors"
-                      >
-                        {topic}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Need Help */}
-              <div className="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-2 text-black dark:text-white">
-                  Need Help?
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Can't find what you're looking for?
-                </p>
-                <div className="space-y-2">
-                  <Link
-                    href="/contact"
-                    className="block text-sm text-blue-600 hover:underline"
-                  >
-                    Contact Support
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block text-sm text-blue-600 hover:underline"
-                  >
-                    Join Discord
-                  </Link>
+            {/* Quick Links */}
+            <section className="py-8 bg-background">
+                <div className="container mx-auto px-4">
+                    <div className="grid gap-4 md:grid-cols-4">
+                        {quickLinks.map((link) => {
+                            const Icon = link.icon;
+                            return (
+                                <Link
+                                    key={link.title}
+                                    href={link.href}
+                                    className="flex items-center gap-3 border border-primary/10 p-4 hover:border-primary/30 hover:bg-primary/5 transition-all"
+                                >
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-primary/20 bg-primary/10 text-primary">
+                                        <Icon className="h-5 w-5" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-medium text-sm">{link.title}</h3>
+                                        <p className="text-xs text-muted-foreground">{link.description}</p>
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
+            </section>
+
+            {/* Documentation Sections */}
+            <section className="py-24 bg-background">
+                <div className="container mx-auto px-4">
+                    <div className="mx-auto max-w-6xl">
+                        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                            {docSections.map((section) => {
+                                const Icon = section.icon;
+                                return (
+                                    <div
+                                        key={section.title}
+                                        className="border border-primary/10 p-6 hover:border-primary/30 transition-all"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <div className="flex h-10 w-10 items-center justify-center border border-primary/20 bg-primary/10 text-primary">
+                                                <Icon className="h-5 w-5" />
+                                            </div>
+                                            <h3 className="font-semibold">{section.title}</h3>
+                                        </div>
+                                        <p className="mt-3 text-sm text-muted-foreground">{section.description}</p>
+                                        <ul className="mt-4 space-y-2">
+                                            {section.links.map((link) => (
+                                                <li key={link.href}>
+                                                    <Link
+                                                        href={link.href}
+                                                        className="flex items-center text-sm text-primary hover:underline"
+                                                    >
+                                                        <ArrowRight className="mr-2 h-3 w-3" />
+                                                        {link.title}
+                                                    </Link>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Popular Articles */}
+            <section className="py-24 bg-background">
+                <div className="container mx-auto px-4">
+                    <div className="mx-auto max-w-4xl">
+                        <div className="text-center">
+                            <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
+                                Popular
+                            </Badge>
+                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                                Most Read <span className="text-primary">Articles</span>
+                            </h2>
+                        </div>
+
+                        <div className="mt-12 space-y-4">
+                            {[
+                                { title: "Quick Start Guide", description: "Get up and running with Bitrize Plus in 5 minutes", href: "/docs/quick-start" },
+                                { title: "Understanding AI Agents", description: "Learn how AI agents work and when to use each one", href: "/docs/agents" },
+                                { title: "API Authentication", description: "Secure your API requests with proper authentication", href: "/docs/api/auth" },
+                                { title: "Best Practices", description: "Tips and tricks for getting the most out of Bitrize Plus", href: "/docs/best-practices" },
+                                { title: "Troubleshooting Guide", description: "Common issues and how to resolve them", href: "/docs/troubleshooting" },
+                            ].map((article) => (
+                                <Link
+                                    key={article.href}
+                                    href={article.href}
+                                    className="flex items-center justify-between border border-primary/10 bg-card p-4 hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                                >
+                                    <div>
+                                        <h3 className="font-medium group-hover:text-primary transition-colors">{article.title}</h3>
+                                        <p className="text-sm text-muted-foreground">{article.description}</p>
+                                    </div>
+                                    <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-24 bg-background">
+                <div className="container mx-auto px-4">
+                    <div className="mx-auto max-w-3xl text-center">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                            Can't Find What You're Looking For?
+                        </h2>
+                        <p className="mt-4 text-lg text-muted-foreground">
+                            Our support team is here to help. Reach out and we'll get back to you within 24 hours.
+                        </p>
+                        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                            <Button size="lg" asChild>
+                                <Link href="/contact">
+                                    Contact Support
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                            <Button size="lg" variant="outline" asChild className="border-primary/20 hover:bg-primary/5">
+                                <Link href="https://github.com/bitrizeplus" target="_blank">
+                                    <ExternalLink className="mr-2 h-4 w-4" />
+                                    GitHub Discussions
+                                </Link>
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </main>
-    </div>
-  );
+    );
 }

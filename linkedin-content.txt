@@ -83,9 +83,10 @@ A comprehensive AI agent platform covering:
 • E-commerce
 • Agencies & Consultancies
 
-📍 Headquarters: [Your Location]
-🌐 Website: bitrizeplus.com
-📧 Contact: hello@bitrizeplus.com
+📍 Headquarters: 7 Dove Ln, Potters Bar EN6 2SG, United Kingdom
+🌐 Website: bitrizeplus.dev
+📧 Contact: hello@bitrizeplus.dev
+📞 Phone: +44 7850 852419
 
 #AIAgents #SoftwareDevelopment #DevOps #Automation #ArtificialIntelligence
 
